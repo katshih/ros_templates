@@ -1,0 +1,18 @@
+<launch>
+  <!-- args set in terminal when calling launch file -->
+  <arg name="arg_name"          default="default_val" />
+
+  <!-- params just set here -->
+  <param name="param_name"      value="param_val"/>
+
+  <!-- run a node -->
+  <node name="node_name" pkg="pkg_name" type="file_name.py" />
+
+  <!-- run a node with parameters -->
+  < node name="node_name" pkg="pkg_name" type="file_name.py" args="$(arg arg_name) $(arg param_name)"
+
+  <!-- call another launch file -->
+  <include file="$(find pkg_name)/launch/launch_file.launch" >
+        <arg name="arg1"    value="arg1_val" />
+  </include>
+</launch>
